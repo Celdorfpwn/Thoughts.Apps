@@ -22,6 +22,8 @@ namespace Thoughts.Android
 
         private List<UserMessage> _userMessages { get; set; }
 
+        private EditText _messageEditText { get; set; }
+
         private ListView _messagesListView { get; set; }
 
         private MessagesListAdapter _adapter { get; set; }
@@ -34,19 +36,20 @@ namespace Thoughts.Android
             _userMessages = new List<UserMessage>();
             _messagesListView = FindViewById<ListView>(Resource.Id.MessagesListView);
 
-            _userMessages.Add(new UserMessage { Message = "WTF", Sender = "Muie" });
-
             _adapter = new MessagesListAdapter(this, _userMessages);
             _messagesListView.Adapter = _adapter;
 
-            var button = FindViewById<Button>(Resource.Id.btnSend);
+            var button = FindViewById<Button>(Resource.Id.SendButton);
+            _messageEditText = FindViewById<EditText>(Resource.Id.MesssageEditText);
             button.Click += Button_Click;
 
         }
 
         private async void Button_Click(object sender, EventArgs e)
         {
-            await _chatProxy.Invoke("Send", "BineBoss", "HaiSictyr");
+            var message = _messageEditText.Text;
+            _messageEditText.Text = "";
+            await _chatProxy.Invoke("Send", "AndroidUser", message);
         }
 
         private void InitChat()

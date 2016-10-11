@@ -66,14 +66,14 @@ namespace Thoughts.Android
 			// aapt resource value: 0x7f050000
 			public const int MessagesListView = 2131034112;
 			
-			// aapt resource value: 0x7f050004
-			public const int SenderTextView = 2131034116;
+			// aapt resource value: 0x7f050002
+			public const int MesssageEditText = 2131034114;
 			
 			// aapt resource value: 0x7f050003
-			public const int btnSend = 2131034115;
+			public const int SendButton = 2131034115;
 			
-			// aapt resource value: 0x7f050002
-			public const int inputMsg = 2131034114;
+			// aapt resource value: 0x7f050004
+			public const int SenderTextView = 2131034116;
 			
 			// aapt resource value: 0x7f050001
 			public const int llMsgCompose = 2131034113;
