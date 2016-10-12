@@ -69,7 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Activities\ChatActivity.cs" />
+    <Compile Include="BL\ChatService.cs" />
+    <Compile Include="BL\ChatViewModel.cs" />
+    <Compile Include="BL\MessagesListAdapter.cs" />
+    <Compile Include="BL\UserMessage.cs" />
+    <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,9 +86,12 @@
     <AndroidResource Include="Resources\layout\Message.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\Chat.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml">
+    <AndroidResource Include="Resources\layout\Login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -60,23 +60,35 @@ namespace Thoughts.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050005
-			public const int MessageTextView = 2131034117;
-			
 			// aapt resource value: 0x7f050000
-			public const int MessagesListView = 2131034112;
+			public const int ChatLinearLayout = 2131034112;
+			
+			// aapt resource value: 0x7f050007
+			public const int LoginButton = 2131034119;
+			
+			// aapt resource value: 0x7f050005
+			public const int LoginLinearLayout = 2131034117;
+			
+			// aapt resource value: 0x7f050009
+			public const int MessageTextView = 2131034121;
+			
+			// aapt resource value: 0x7f050001
+			public const int MessagesListView = 2131034113;
 			
 			// aapt resource value: 0x7f050002
 			public const int MesssageEditText = 2131034114;
 			
+			// aapt resource value: 0x7f050006
+			public const int NameEditText = 2131034118;
+			
+			// aapt resource value: 0x7f050004
+			public const int ProgressBar = 2131034116;
+			
 			// aapt resource value: 0x7f050003
 			public const int SendButton = 2131034115;
 			
-			// aapt resource value: 0x7f050004
-			public const int SenderTextView = 2131034116;
-			
-			// aapt resource value: 0x7f050001
-			public const int llMsgCompose = 2131034113;
+			// aapt resource value: 0x7f050008
+			public const int SenderTextView = 2131034120;
 			
 			static Id()
 			{
@@ -92,10 +104,13 @@ namespace Thoughts.Android
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int Chat = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Message = 2130903041;
+			public const int Login = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Message = 2130903042;
 			
 			static Layout()
 			{
