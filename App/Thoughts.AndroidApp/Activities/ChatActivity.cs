@@ -10,15 +10,14 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
-using Microsoft.AspNet.SignalR.Client;
-using Thoughts.Android.BL;
+using Thoughts.AndroidApp.BL;
 using Android.Util;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Thoughts.Android.Activities
+namespace Thoughts.AndroidApp.Activities
 {
-    [Activity(Label = "Thoughts")]
+    [Activity(Label = "Thoughts",ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.KeyboardHidden | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class ChatActivity : Activity
     {
 

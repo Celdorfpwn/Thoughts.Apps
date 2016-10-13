@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Thoughts.Android.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Thoughts.AndroidApp.Resource", IsApplication=true)]
 
-namespace Thoughts.Android
+namespace Thoughts.AndroidApp
 {
 	
 	

@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9F285E9B-F513-4979-88B2-40B7A80ED6CD}</ProjectGuid>
+    <ProjectGuid>{9BA763B3-1239-44BF-8A8C-9BEEAD2105FF}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Thoughts.Android</RootNamespace>
-    <AssemblyName>Thoughts.Android</AssemblyName>
+    <RootNamespace>Thoughts.AndroidApp</RootNamespace>
+    <AssemblyName>Thoughts.AndroidApp</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
@@ -20,7 +20,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
@@ -29,11 +29,6 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
-    <BundleAssemblies>False</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <Debugger>Microsoft</Debugger>
-    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,16 +39,6 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <BundleAssemblies>False</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86,x86_64,arm64-v8a</AndroidSupportedAbis>
-    <Debugger>Xamarin</Debugger>
-    <AotAssemblies>False</AotAssemblies>
-    <EnableLLVM>False</EnableLLVM>
-    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
-    <EnableProguard>False</EnableProguard>
-    <DebugSymbols>False</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -72,7 +57,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Components\signalr-2.1.2.2\lib\android\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Primitives">
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Components\signalr-2.1.2.2\lib\android\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -80,32 +66,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\ChatActivity.cs" />
+    <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="BL\ChatService.cs" />
     <Compile Include="BL\ChatViewModel.cs" />
     <Compile Include="BL\MessagesListAdapter.cs" />
     <Compile Include="BL\UserMessage.cs" />
-    <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="BL\UserMessageViewModel.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
-    <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\Message_Local.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\Chat.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Message_NotLocal.axml">
+    <AndroidResource Include="Resources\layout\Login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Login.axml">
+    <AndroidResource Include="Resources\layout\Message_Local.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Message_NotLocal.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -119,25 +100,28 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="signalr">
-      <Visible>False</Visible>
-      <Version>2.1.2.2</Version>
-    </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Background_Message_Local.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\values\Color.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Background_Message_NotLocal.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\App_Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\App_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Background_Message_Local.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Background_Message_NotLocal.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="signalr">
+      <Visible>False</Visible>
+      <Version>2.1.2.2</Version>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

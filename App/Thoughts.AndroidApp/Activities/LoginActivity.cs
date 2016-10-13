@@ -6,12 +6,12 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.Collections.Generic;
-using Thoughts.Android.Activities;
+using Thoughts.AndroidApp.Activities;
 using Android.Util;
-using Thoughts.Android.BL;
+using Thoughts.AndroidApp.BL;
 using Android.Views.InputMethods;
 
-namespace Thoughts.Android
+namespace Thoughts.AndroidApp
 {
     [Activity(Label = "Thoughts", MainLauncher = true, Icon = "@drawable/App_Logo")]
     public class LoginActivity : Activity

@@ -9,12 +9,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Microsoft.AspNet.SignalR.Client;
-using Thoughts.Android.Activities;
+using Thoughts.AndroidApp.Activities;
 using Android.Util;
 using System.Threading.Tasks;
 
-namespace Thoughts.Android.BL
+namespace Thoughts.AndroidApp.BL
 {
     public class ChatViewModel
     {
