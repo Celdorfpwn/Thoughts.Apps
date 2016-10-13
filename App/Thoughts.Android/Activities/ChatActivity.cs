@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace Thoughts.Android.Activities
 {
-    [Activity(Label = "ChatActivity")]
+    [Activity(Label = "Thoughts")]
     public class ChatActivity : Activity
     {
 

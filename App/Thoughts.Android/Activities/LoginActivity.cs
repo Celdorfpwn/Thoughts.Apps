@@ -13,7 +13,7 @@ using Android.Views.InputMethods;
 
 namespace Thoughts.Android
 {
-    [Activity(Label = "Thoughts.Android", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Thoughts", MainLauncher = true, Icon = "@drawable/App_Logo")]
     public class LoginActivity : Activity
     {
 
