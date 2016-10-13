@@ -16,9 +16,9 @@ namespace Thoughts.Android.BL
     {
         private Context _context { get; set; }
 
-        private List<UserMessage> _userMessages { get; set; }
+        private List<UserMessageViewModel> _userMessages { get; set; }
 
-        public MessagesListAdapter(Context context, List<UserMessage> userMessages)
+        public MessagesListAdapter(Context context, List<UserMessageViewModel> userMessages)
         {
             _context = context;
             _userMessages = userMessages;
@@ -44,17 +44,24 @@ namespace Thoughts.Android.BL
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var message = _userMessages[position];
+            var viewModel = _userMessages[position];
 
             var inflater = _context.GetSystemService(Activity.LayoutInflaterService) as LayoutInflater;
 
-            convertView = inflater.Inflate(Resource.Layout.Message, null);
+            if (viewModel.IsLocal)
+            {
+                convertView = inflater.Inflate(Resource.Layout.Message_Local, null);
+            }
+            else
+            {
+                convertView = inflater.Inflate(Resource.Layout.Message_NotLocal, null);
+            }
 
             var senderTextView = convertView.FindViewById<TextView>(Resource.Id.SenderTextView);
             var messageTextView = convertView.FindViewById<TextView>(Resource.Id.MessageTextView);
 
-            senderTextView.Text = message.Sender;
-            messageTextView.Text = message.Message;
+            senderTextView.Text = viewModel.UserMessage.Sender;
+            messageTextView.Text = viewModel.UserMessage.Message;
 
             return convertView;
         }

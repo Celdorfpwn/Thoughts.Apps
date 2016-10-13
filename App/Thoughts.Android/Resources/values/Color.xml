@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <color name="Background_Message_Local">#5eb964</color>
+  <color name="Background_Message_NotLocal">#e5e7eb</color>
+  <color name="Message_Border_Color">#a1a1a1</color>
+  <color name="Gray">#434343</color>
+  <color name="White">#ffffff</color>
+  <color name="FromColor">#777777</color>
+</resources>

@@ -75,6 +75,7 @@
     <Compile Include="BL\MessagesListAdapter.cs" />
     <Compile Include="BL\UserMessage.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
+    <Compile Include="BL\UserMessageViewModel.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,10 +84,13 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\Message.axml">
+    <AndroidResource Include="Resources\layout\Message_Local.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Chat.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Message_NotLocal.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -109,6 +113,15 @@
       <Visible>False</Visible>
       <Version>2.1.2.2</Version>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Background_Message_Local.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Color.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Background_Message_NotLocal.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

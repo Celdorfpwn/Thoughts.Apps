@@ -38,9 +38,14 @@ namespace Thoughts.Android.BL
             });
         }
 
-        public Task Connect()
+        public Task ConnectAsync()
         {
             return _hubConnection.Start();
+        }
+
+        public void Connect()
+        {
+            _hubConnection.Start().Wait();
         }
 
         public void SetActions(Action<UserMessage> receiveCallback)
@@ -51,7 +56,7 @@ namespace Thoughts.Android.BL
 
         public Task SendMessage(UserMessage message)
         {
-            return _chatProxy.Invoke("Send", message.Sender, message.Message);
+            return _chatProxy.Invoke("Send", message);
         }
     }
 }

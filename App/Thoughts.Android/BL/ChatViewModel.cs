@@ -20,7 +20,7 @@ namespace Thoughts.Android.BL
     {
         private ChatService _chatService { get; set; }
 
-        private List<UserMessage> _userMessages { get; set; }
+        private List<UserMessageViewModel> _userMessages { get; set; }
 
         private ListView _messagesListView { get; set; }
 
@@ -42,7 +42,7 @@ namespace Thoughts.Android.BL
             _messageEditText = activity.FindViewById<EditText>(Resource.Id.MesssageEditText);
             _sendButton = activity.FindViewById<Button>(Resource.Id.SendButton);
 
-            _userMessages = new List<UserMessage>();
+            _userMessages = new List<UserMessageViewModel>();
             _adapter = new MessagesListAdapter(activity, _userMessages);
             _messagesListView.Adapter = _adapter;
 
@@ -60,18 +60,28 @@ namespace Thoughts.Android.BL
                 Sender = _username,
                 Message = _messageEditText.Text
             };
+
             _messageEditText.Text = "";
 
-            _chatService.SendMessage(message);
+            AddLocalMessage(message);
 
-            AddMessage(message);     
+            _chatService.SendMessage(message); 
         }
 
         public void AddMessage(UserMessage message)
         {
             _messagesListView.Post(() =>
             {
-                _userMessages.Add(message);
+                _userMessages.Add(new UserMessageViewModel { UserMessage = message, IsLocal = false });
+                _adapter.NotifyDataSetChanged();
+            });
+        }
+
+        public void AddLocalMessage(UserMessage message)
+        {
+            _messagesListView.Post(() =>
+            {
+                _userMessages.Add(new UserMessageViewModel { UserMessage = message, IsLocal = true });
                 _adapter.NotifyDataSetChanged();
             });
         }

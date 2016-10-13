@@ -41,11 +41,48 @@ namespace Thoughts.Android
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int Background_Message_Local = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int Background_Message_NotLocal = 2130968577;
+			
+			// aapt resource value: 0x7f040005
+			public const int FromColor = 2130968581;
+			
+			// aapt resource value: 0x7f040003
+			public const int Gray = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int Message_Border_Color = 2130968578;
+			
+			// aapt resource value: 0x7f040004
+			public const int White = 2130968580;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int Background_Message_Local = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Background_Message_NotLocal = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Icon = 2130837506;
 			
 			static Drawable()
 			{
@@ -60,35 +97,35 @@ namespace Thoughts.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int ChatLinearLayout = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int ChatLinearLayout = 2131099648;
 			
-			// aapt resource value: 0x7f050007
-			public const int LoginButton = 2131034119;
+			// aapt resource value: 0x7f060007
+			public const int LoginButton = 2131099655;
 			
-			// aapt resource value: 0x7f050005
-			public const int LoginLinearLayout = 2131034117;
+			// aapt resource value: 0x7f060005
+			public const int LoginLinearLayout = 2131099653;
 			
-			// aapt resource value: 0x7f050009
-			public const int MessageTextView = 2131034121;
+			// aapt resource value: 0x7f060009
+			public const int MessageTextView = 2131099657;
 			
-			// aapt resource value: 0x7f050001
-			public const int MessagesListView = 2131034113;
+			// aapt resource value: 0x7f060001
+			public const int MessagesListView = 2131099649;
 			
-			// aapt resource value: 0x7f050002
-			public const int MesssageEditText = 2131034114;
+			// aapt resource value: 0x7f060002
+			public const int MesssageEditText = 2131099650;
 			
-			// aapt resource value: 0x7f050006
-			public const int NameEditText = 2131034118;
+			// aapt resource value: 0x7f060006
+			public const int NameEditText = 2131099654;
 			
-			// aapt resource value: 0x7f050004
-			public const int ProgressBar = 2131034116;
+			// aapt resource value: 0x7f060004
+			public const int ProgressBar = 2131099652;
 			
-			// aapt resource value: 0x7f050003
-			public const int SendButton = 2131034115;
+			// aapt resource value: 0x7f060003
+			public const int SendButton = 2131099651;
 			
-			// aapt resource value: 0x7f050008
-			public const int SenderTextView = 2131034120;
+			// aapt resource value: 0x7f060008
+			public const int SenderTextView = 2131099656;
 			
 			static Id()
 			{
@@ -110,7 +147,10 @@ namespace Thoughts.Android
 			public const int Login = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Message = 2130903042;
+			public const int Message_Local = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int Message_NotLocal = 2130903043;
 			
 			static Layout()
 			{
@@ -125,11 +165,8 @@ namespace Thoughts.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
-			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int ApplicationName = 2131034112;
 			
 			static String()
 			{

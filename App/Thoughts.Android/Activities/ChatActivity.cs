@@ -28,7 +28,7 @@ namespace Thoughts.Android.Activities
 
         private ProgressBar _progressBar { get; set; }
 
-        protected async  override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Chat);
@@ -40,7 +40,8 @@ namespace Thoughts.Android.Activities
             var chatService = new ChatService();
             _viewModel = new ChatViewModel(this, chatService,username);
 
-            await chatService.Connect();
+
+            await chatService.ConnectAsync();
             EnableChatLayout();
         }
 
