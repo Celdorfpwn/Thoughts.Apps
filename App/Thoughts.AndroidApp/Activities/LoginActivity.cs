@@ -56,9 +56,9 @@ namespace Thoughts.AndroidApp
 
         public void StartChatActivity()
         {
-            var intent = new Intent(this,typeof(ChatActivity));
+            var intent = new Intent(this,typeof(MenuActivity));
 
-            intent.PutExtra("Username", _usernameEditText.Text);
+            AppSettings.Username = _usernameEditText.Text;
 
             StartActivity(intent);
         }

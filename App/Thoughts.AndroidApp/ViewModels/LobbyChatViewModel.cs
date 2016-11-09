@@ -12,43 +12,45 @@ using Android.Widget;
 using Thoughts.AndroidApp.Activities;
 using Android.Util;
 using System.Threading.Tasks;
+using Thoughts.AndroidApp.BL;
+using Thoughts.AndroidApp.ViewModels.Adapters;
 
-namespace Thoughts.AndroidApp.BL
+namespace Thoughts.AndroidApp.ViewModels
 {
-    public class ChatViewModel
+    public class LobbyChatViewModel
     {
         private ChatService _chatService { get; set; }
-
-        private List<UserMessageViewModel> _userMessages { get; set; }
 
         private ListView _messagesListView { get; set; }
 
         private MessagesListAdapter _adapter { get; set; }
 
-        private ChatActivity activity { get; set; }
+        private LobbyChatActivity activity { get; set; }
 
         private TextView _messageEditText { get; set; }
 
         private Button _sendButton { get; set; }
 
-        private string _username { get; set; }
-
-        public ChatViewModel(ChatActivity activity,ChatService chatService, string username)
+        private string _username
         {
-            _username = username;
+            get
+            {
+                return AppSettings.Username;
+            }
+        }
 
+        public LobbyChatViewModel(LobbyChatActivity activity,ChatService chatService)
+        {
             _messagesListView = activity.FindViewById<ListView>(Resource.Id.MessagesListView);
             _messageEditText = activity.FindViewById<EditText>(Resource.Id.MesssageEditText);
             _sendButton = activity.FindViewById<Button>(Resource.Id.SendButton);
-
-            _userMessages = new List<UserMessageViewModel>();
-            _adapter = new MessagesListAdapter(activity, _userMessages);
+            _adapter = new MessagesListAdapter(activity);
             _messagesListView.Adapter = _adapter;
 
             _sendButton.Click += SendMessage;
 
             _chatService = chatService;
-            _chatService.SetActions(AddMessage);
+            _chatService.ReceiveCallback = AddMessage;
         }
 
         private void SendMessage(object sender, EventArgs e)
@@ -71,8 +73,7 @@ namespace Thoughts.AndroidApp.BL
         {
             _messagesListView.Post(() =>
             {
-                _userMessages.Add(new UserMessageViewModel { UserMessage = message, IsLocal = false });
-                _adapter.NotifyDataSetChanged();
+                _adapter.Add(new UserMessageViewModel { UserMessage = message, IsLocal = false });
             });
         }
 
@@ -80,8 +81,7 @@ namespace Thoughts.AndroidApp.BL
         {
             _messagesListView.Post(() =>
             {
-                _userMessages.Add(new UserMessageViewModel { UserMessage = message, IsLocal = true });
-                _adapter.NotifyDataSetChanged();
+                _adapter.Add(new UserMessageViewModel { UserMessage = message, IsLocal = true });
             });
         }
     }

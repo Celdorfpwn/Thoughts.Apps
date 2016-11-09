@@ -14,20 +14,21 @@ using Thoughts.AndroidApp.BL;
 using Android.Util;
 using System.Threading;
 using System.Threading.Tasks;
+using Thoughts.AndroidApp.ViewModels;
 
 namespace Thoughts.AndroidApp.Activities
 {
     [Activity(Label = "Thoughts",ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.KeyboardHidden | Android.Content.PM.ConfigChanges.ScreenSize)]
-    public class ChatActivity : Activity
+    public class LobbyChatActivity : Activity
     {
 
-        private ChatViewModel _viewModel { get; set; }
+        private LobbyChatViewModel _viewModel { get; set; }
 
         private LinearLayout _chatLinearLayout { get; set; }
 
         private ProgressBar _progressBar { get; set; }
 
-        protected override async void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Chat);
@@ -35,21 +36,11 @@ namespace Thoughts.AndroidApp.Activities
             _chatLinearLayout = FindViewById<LinearLayout>(Resource.Id.ChatLinearLayout);
             _progressBar = FindViewById<ProgressBar>(Resource.Id.ProgressBar);
 
-            var username = Intent.GetStringExtra("Username");
             var chatService = new ChatService();
-            _viewModel = new ChatViewModel(this, chatService,username);
-
-
-            await chatService.ConnectAsync();
-            EnableChatLayout();
+            _viewModel = new LobbyChatViewModel(this, chatService);
         }
 
 
-        public void EnableChatLayout()
-        {
-            _progressBar.Visibility = ViewStates.Gone;
-            _chatLinearLayout.Visibility = ViewStates.Visible;           
-        }
     }
 
 }

@@ -10,41 +10,20 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace Thoughts.AndroidApp.BL
+namespace Thoughts.AndroidApp.ViewModels.Adapters
 {
-    public class MessagesListAdapter : BaseAdapter
+    public class MessagesListAdapter : CollectionAdapter<UserMessageViewModel>
     {
-        private Context _context { get; set; }
 
-        private List<UserMessageViewModel> _userMessages { get; set; }
-
-        public MessagesListAdapter(Context context, List<UserMessageViewModel> userMessages)
+        public MessagesListAdapter(Context context)
+            :base(context)
         {
-            _context = context;
-            _userMessages = userMessages;
         }
 
-        public override int Count
-        {
-            get
-            {
-                return _userMessages.Count;
-            }
-        }
-
-        public override Java.Lang.Object GetItem(int position)
-        {
-            return null;
-        }
-
-        public override long GetItemId(int position)
-        {
-            return position;
-        }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var viewModel = _userMessages[position];
+            var viewModel = _viewModels[position];
 
             var inflater = _context.GetSystemService(Activity.LayoutInflaterService) as LayoutInflater;
 

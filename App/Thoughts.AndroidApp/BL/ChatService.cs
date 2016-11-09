@@ -17,15 +17,49 @@ namespace Thoughts.AndroidApp.BL
     public class ChatService
     {
 
+        private static ChatService _instance { get; set; }
+
+        public static ChatService Singleton
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new ChatService();
+                }
+
+                return _instance;
+            }
+        }
+
         private HubConnection _hubConnection { get; set; }
 
         private IHubProxy _chatProxy { get; set; }
 
         private Action<UserMessage> _receiveCallback { get; set; }
 
+        private Action<User> _userConnected { get; set; }
+
+        public Action<UserMessage> ReceiveCallback
+        {
+            set
+            {
+                _receiveCallback = value;
+            }
+        }
+
+        public Action<User> UserConnected
+        {
+            set
+            {
+                _userConnected = value;
+            }
+        }
+
         public ChatService()
         {
-            _hubConnection = new HubConnection("http://thoughtsapi.azurewebsites.net/chat");
+            _hubConnection = new HubConnection(AppSettings.SERVER_URL);
+
             _chatProxy = _hubConnection.CreateHubProxy("chat");
 
             _chatProxy.On<UserMessage>("Receive", (message) =>
@@ -35,23 +69,21 @@ namespace Thoughts.AndroidApp.BL
                     _receiveCallback.Invoke(message);
                 }
             });
+
+            _chatProxy.On<User>("UserConnected", (user) =>
+            {
+                if(_userConnected != null)
+                {
+                    _userConnected.Invoke(user);
+                }
+            });
         }
 
-        public Task ConnectAsync()
+        public async Task ConnectAsync()
         {
-            return _hubConnection.Start();
+            await _hubConnection.Start();
+            await _chatProxy.Invoke("Connect",AppSettings.Username);
         }
-
-        public void Connect()
-        {
-            _hubConnection.Start().Wait();
-        }
-
-        public void SetActions(Action<UserMessage> receiveCallback)
-        {
-            _receiveCallback = receiveCallback;
-        }
-
 
         public Task SendMessage(UserMessage message)
         {

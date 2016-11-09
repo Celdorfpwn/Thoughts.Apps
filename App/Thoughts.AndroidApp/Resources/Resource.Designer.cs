@@ -106,14 +106,17 @@ namespace Thoughts.AndroidApp
 			// aapt resource value: 0x7f060000
 			public const int ChatLinearLayout = 2131099648;
 			
+			// aapt resource value: 0x7f060006
+			public const int LoginButton = 2131099654;
+			
+			// aapt resource value: 0x7f060004
+			public const int LoginLinearLayout = 2131099652;
+			
 			// aapt resource value: 0x7f060007
-			public const int LoginButton = 2131099655;
+			public const int MenuLinearLayout = 2131099655;
 			
-			// aapt resource value: 0x7f060005
-			public const int LoginLinearLayout = 2131099653;
-			
-			// aapt resource value: 0x7f060009
-			public const int MessageTextView = 2131099657;
+			// aapt resource value: 0x7f06000b
+			public const int MessageTextView = 2131099659;
 			
 			// aapt resource value: 0x7f060001
 			public const int MessagesListView = 2131099649;
@@ -121,17 +124,26 @@ namespace Thoughts.AndroidApp
 			// aapt resource value: 0x7f060002
 			public const int MesssageEditText = 2131099650;
 			
-			// aapt resource value: 0x7f060006
-			public const int NameEditText = 2131099654;
+			// aapt resource value: 0x7f060005
+			public const int NameEditText = 2131099653;
 			
-			// aapt resource value: 0x7f060004
-			public const int ProgressBar = 2131099652;
+			// aapt resource value: 0x7f060009
+			public const int ProgressBar = 2131099657;
 			
 			// aapt resource value: 0x7f060003
 			public const int SendButton = 2131099651;
 			
+			// aapt resource value: 0x7f06000a
+			public const int SenderTextView = 2131099658;
+			
+			// aapt resource value: 0x7f06000c
+			public const int UserLinearLayout = 2131099660;
+			
+			// aapt resource value: 0x7f06000d
+			public const int UserNameTextView = 2131099661;
+			
 			// aapt resource value: 0x7f060008
-			public const int SenderTextView = 2131099656;
+			public const int UsersListView = 2131099656;
 			
 			static Id()
 			{
@@ -153,10 +165,16 @@ namespace Thoughts.AndroidApp
 			public const int Login = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Message_Local = 2130903042;
+			public const int Menu = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Message_NotLocal = 2130903043;
+			public const int Message_Local = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int Message_NotLocal = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int User = 2130903045;
 			
 			static Layout()
 			{

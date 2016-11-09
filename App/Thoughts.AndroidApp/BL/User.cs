@@ -12,10 +12,10 @@ using Android.Widget;
 
 namespace Thoughts.AndroidApp.BL
 {
-    public class UserMessageViewModel
+    public class User
     {
-        public UserMessage UserMessage { get; set; }
+        public string Name { get; set; }
 
-        public bool IsLocal { get; set; }
+        public string Id { get; set; }
     }
 }

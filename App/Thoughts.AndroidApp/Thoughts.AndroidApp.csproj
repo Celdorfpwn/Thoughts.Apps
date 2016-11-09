@@ -65,18 +65,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\ChatActivity.cs" />
+    <Compile Include="Activities\LobbyChatActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
+    <Compile Include="Activities\MenuActivity.cs" />
+    <Compile Include="AppSettings.cs" />
     <Compile Include="BL\ChatService.cs" />
-    <Compile Include="BL\ChatViewModel.cs" />
-    <Compile Include="BL\MessagesListAdapter.cs" />
+    <Compile Include="BL\User.cs" />
+    <Compile Include="ViewModels\Adapters\CollectionAdapter.cs" />
+    <Compile Include="ViewModels\LobbyChatViewModel.cs" />
+    <Compile Include="ViewModels\Adapters\MessagesListAdapter.cs" />
     <Compile Include="BL\UserMessage.cs" />
-    <Compile Include="BL\UserMessageViewModel.cs" />
+    <Compile Include="ViewModels\UserMessageViewModel.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Adapters\UsersListAdapter.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GettingStarted.Xamarin" />
     <AndroidResource Include="Resources\layout\Chat.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -98,6 +103,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\layout\Menu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\User.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Color.xml" />
