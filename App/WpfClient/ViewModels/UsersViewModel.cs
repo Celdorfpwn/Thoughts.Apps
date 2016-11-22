@@ -31,7 +31,7 @@ namespace WpfClient.ViewModels
             UserViewModels = new ReactiveList<UserViewModel>();
         }
 
-        private void UserConnected(User user)
+        private void UserConnected(UserLocal user)
         {
             if (!UserViewModels.Any(userViewModel => userViewModel.User.Id.Equals(user.Id)))
             {
@@ -44,14 +44,14 @@ namespace WpfClient.ViewModels
             HubService.Singleton.Disconnect();
         }
 
-        private void UsersList(IEnumerable<User> users)
+        private void UsersList(IEnumerable<UserLocal> users)
         {
             users.Where(user => !UserViewModels.Select(userViewModel => userViewModel.User.Id).Contains(user.Id))
                 .ToList()
                 .ForEach(user => UserViewModels.Add(new UserViewModel(user)));
         }
 
-        private void UserDisconnected(User user)
+        private void UserDisconnected(UserLocal user)
         {
             UserViewModels.Remove(UserViewModels.Single(userViewModel => userViewModel.User.Id.Equals(user.Id)));
         }
@@ -60,7 +60,7 @@ namespace WpfClient.ViewModels
         {
             _hubProxy = HubService.Singleton.ChatHub;
 
-            _hubProxy.On<User>("UserConnected", (user) =>
+            _hubProxy.On<UserLocal>("UserConnected", (user) =>
             {
                 _dispatcher.InvokeAsync(() =>
                 {
@@ -68,7 +68,7 @@ namespace WpfClient.ViewModels
                 });
             });
 
-            _hubProxy.On<IEnumerable<User>>("UsersList", (users) =>
+            _hubProxy.On<IEnumerable<UserLocal>>("UsersList", (users) =>
             {
                 _dispatcher.InvokeAsync(() =>
                 {
@@ -76,7 +76,7 @@ namespace WpfClient.ViewModels
                 });
             });
 
-            _hubProxy.On<User>("UserDisconected", (user) =>
+            _hubProxy.On<UserLocal>("UserDisconected", (user) =>
              {
                  _dispatcher.InvokeAsync(() =>
                  {

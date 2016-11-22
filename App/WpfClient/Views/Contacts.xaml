@@ -4,9 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfClient.Views"
+             xmlns:models="clr-namespace:WpfClient.Models"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-             
+        <ListView ItemsSource="{Binding Contacts}">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="{x:Type models:ContactModel}">
+                    <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1">
+                        <DockPanel HorizontalAlignment="Stretch">
+                            <Label Content="{Binding User.Username}" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                            <Button Content="Accept" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="{Binding InviteButtonsVisibility}"></Button>
+                            <Button Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="{Binding InviteButtonsVisibility}"></Button>
+                            <Button Content="Chat" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="{Binding ChatButtonVisibility}" Click="Chat_Click"></Button>
+                        </DockPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

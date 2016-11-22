@@ -14,6 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfClient.BL;
 using Microsoft.AspNet.SignalR.Client;
+using Thoughts.Api.Models.ApiModels;
+using Thoughts.Api.Models.Entities;
+using System.Diagnostics;
+
 namespace WpfClient
 {
     /// <summary>
@@ -60,12 +64,11 @@ namespace WpfClient
             ProgressRing.IsActive = true;
             try
             {
-                await _hubProxy.Invoke("Login",new
+                await _hubProxy.Invoke("Login", new User
                 {
                     Username = UsernameTextbox.Text
                 });
                 ProgressRing.IsActive = false;
-                MainWindow.SetUsersWindow();
             }
             catch(Exception)
             {

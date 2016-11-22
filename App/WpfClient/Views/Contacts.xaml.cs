@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfClient.Models;
+using WpfClient.ViewModels;
 
 namespace WpfClient.Views
 {
@@ -20,9 +22,27 @@ namespace WpfClient.Views
     /// </summary>
     public partial class Contacts : UserControl
     {
+
+        ContactsViewModel _viewModel { get; set; }
+
         public Contacts()
         {
+            _viewModel = new ContactsViewModel();
             InitializeComponent();
+            this.DataContext = _viewModel;
+            this.Loaded += Contacts_Loaded;
+        }
+
+        private async void Contacts_Loaded(object sender, RoutedEventArgs e)
+        {
+            await _viewModel.RequestContacts();
+        }
+
+        private async void Chat_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var contactModel = button.DataContext as ContactModel;
+            await _viewModel.SendChatRequest(contactModel);
         }
     }
 }

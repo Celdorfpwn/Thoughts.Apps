@@ -24,9 +24,6 @@ namespace WpfClient
     /// </summary>
     public partial class MainWindow
     {
-
-        private Users _usersView { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();

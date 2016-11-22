@@ -142,6 +142,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Thoughts.Api.Models">
+      <HintPath>..\..\..\Server\Api\Thoughts.Api\Thoughts.Api.Models\bin\Release\Thoughts.Api.Models.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -152,19 +155,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BL\MessagesSecurity.cs" />
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\PublicKey.cs" />
+    <Compile Include="ViewModels\ContactsViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\Contacts.xaml.cs">
       <DependentUpon>Contacts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PrivateChat.xaml.cs">
-      <DependentUpon>PrivateChat.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Users.xaml.cs">
-      <DependentUpon>Users.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -196,7 +195,7 @@
     </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="BL\HubService.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserLocal.cs" />
     <Compile Include="Models\UserMessage.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
     <Compile Include="Views\Chat.xaml.cs">
@@ -210,14 +209,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MainView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PrivateChat.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Users.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

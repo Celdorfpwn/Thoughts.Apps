@@ -19,7 +19,7 @@
                 </Style>
             </TabControl.Resources>
             <TabItem Header="Contacts">
-                
+                <local:Contacts></local:Contacts>
             </TabItem>
             <TabItem Header="Messages"></TabItem>
         </Controls:MetroAnimatedSingleRowTabControl>

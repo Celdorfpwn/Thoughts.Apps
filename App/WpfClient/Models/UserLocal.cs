@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfClient.Models
 {
-    public class User
+    public class UserLocal
     {
         public string Name { get; set; }
 

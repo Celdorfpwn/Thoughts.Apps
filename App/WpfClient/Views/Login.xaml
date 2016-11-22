@@ -48,7 +48,7 @@
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="1" Style="{StaticResource placeHolder}" Tag="Username" Name="UsernameTextbox" Height="30" TextChanged="UsernameTextbox_TextChanged"></TextBox>
+            <TextBox Grid.Row="1" Style="{StaticResource placeHolder}" Tag="Username" MaxLength="11" Name="UsernameTextbox" Height="30" TextChanged="UsernameTextbox_TextChanged"></TextBox>
             <Button Grid.Row="2" Content="Login" Height="30" Name="LoginButton" IsEnabled="False" Click="LoginButton_Click" ></Button>
         </Grid>
         <Controls:ProgressRing Name="ProgressRing" IsActive="False"></Controls:ProgressRing>

@@ -9,9 +9,9 @@ namespace WpfClient.ViewModels
 {
     public class UserViewModel
     {
-        public User User { get; private set; }
+        public UserLocal User { get; private set; }
 
-        public UserViewModel(User user)
+        public UserViewModel(UserLocal user)
         {
             User = user;
         }
