@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,20 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
-namespace WpfClient
+namespace WpfClient.Views
 {
     /// <summary>
-    /// Interaction logic for Chat.xaml
+    /// Interaction logic for MessagesView.xaml
     /// </summary>
-    public partial class Chat : UserControl
+    public partial class MessagesView : UserControl
     {
-        private bool ChatRunning { get; set; }
-
-        public Chat()
+        private ChatView _chatView { get; set; }
+        public MessagesView(ChatView chatView)
         {
-
+            _chatView = chatView;
+            InitializeComponent();
         }
     }
 }

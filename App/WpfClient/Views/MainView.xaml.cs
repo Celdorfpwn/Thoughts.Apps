@@ -20,9 +20,10 @@ namespace WpfClient.Views
     /// </summary>
     public partial class MainView : UserControl
     {
-        public MainView()
+        public MainView(MainWindow mainWindow)
         {
             InitializeComponent();
+            _contacts.MainWindow = mainWindow;
         }
     }
 }

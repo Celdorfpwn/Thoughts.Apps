@@ -14,9 +14,7 @@
                     <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1">
                         <DockPanel HorizontalAlignment="Stretch">
                             <Label Content="{Binding User.Username}" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
-                            <Button Content="Accept" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="{Binding InviteButtonsVisibility}"></Button>
-                            <Button Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="{Binding InviteButtonsVisibility}"></Button>
-                            <Button Content="Chat" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="{Binding ChatButtonVisibility}" Click="Chat_Click"></Button>
+                            <Button Content="Chat" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Chat_Click"></Button>
                         </DockPanel>
                     </Border>
                 </DataTemplate>

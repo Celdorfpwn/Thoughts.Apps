@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Thoughts.Api.Models.Entities;
 using WpfClient.BL;
 using WpfClient.Views;
 
@@ -24,6 +25,11 @@ namespace WpfClient
     /// </summary>
     public partial class MainWindow
     {
+
+        private MainView _mainView { get; set; }
+
+        private ChatView _chatView { get; set; } 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,17 +37,29 @@ namespace WpfClient
             this.DataContext = this;
         }
 
-        
 
-        public void SetUsersWindow()
+
+        public void SetMainViewWindow()
         {
-            MainContent.Content = new MainView();
+            MainContent.Content = _mainView;
+        }
+
+        public void SetChatView()
+        {
+            MainContent.Content = _chatView;
+        }
+
+        public async Task SendChatRequest(User user)
+        {
+            await _chatView.SendChatRequest(user);
         }
 
         private async void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             await HubService.Singleton.Connect();
             ProgressRing.IsActive = false;
+            _mainView = new MainView(this);
+            _chatView = new ChatView(this);
             MainContent.Content = new Login(this);
         }
 
@@ -49,5 +67,7 @@ namespace WpfClient
         {
             HubService.Singleton.Disconnect();
         }
+
+        
     }
 }

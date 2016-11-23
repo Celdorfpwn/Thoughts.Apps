@@ -19,9 +19,8 @@
                 </Style>
             </TabControl.Resources>
             <TabItem Header="Contacts">
-                <local:Contacts></local:Contacts>
+                <local:Contacts x:Name="_contacts"></local:Contacts>
             </TabItem>
-            <TabItem Header="Messages"></TabItem>
         </Controls:MetroAnimatedSingleRowTabControl>
 
     </Grid>

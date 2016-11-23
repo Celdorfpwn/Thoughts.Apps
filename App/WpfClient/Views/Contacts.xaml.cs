@@ -23,7 +23,9 @@ namespace WpfClient.Views
     public partial class Contacts : UserControl
     {
 
-        ContactsViewModel _viewModel { get; set; }
+        private ContactsViewModel _viewModel { get; set; }
+
+        public MainWindow MainWindow { private get; set; }
 
         public Contacts()
         {
@@ -42,7 +44,7 @@ namespace WpfClient.Views
         {
             var button = sender as Button;
             var contactModel = button.DataContext as ContactModel;
-            await _viewModel.SendChatRequest(contactModel);
+            await MainWindow.SendChatRequest(contactModel.User);
         }
     }
 }

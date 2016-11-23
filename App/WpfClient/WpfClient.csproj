@@ -156,14 +156,26 @@
     </ApplicationDefinition>
     <Compile Include="BL\MessagesSecurity.cs" />
     <Compile Include="Models\ContactModel.cs" />
-    <Compile Include="Models\PublicKey.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="ViewModels\ChatViewModel.cs" />
     <Compile Include="ViewModels\ContactsViewModel.cs" />
-    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\ChatView.xaml.cs">
+      <DependentUpon>ChatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChatViews\ReceiveChatRequestView.xaml.cs">
+      <DependentUpon>ReceiveChatRequestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChatViews\SendChatRequestView.xaml.cs">
+      <DependentUpon>SendChatRequestView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Contacts.xaml.cs">
       <DependentUpon>Contacts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChatViews\MessagesView.xaml.cs">
+      <DependentUpon>MessagesView.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -173,7 +185,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Chat.xaml">
+    <Page Include="Views\ChatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChatViews\ReceiveChatRequestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChatViews\SendChatRequestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,12 +215,6 @@
     </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="BL\HubService.cs" />
-    <Compile Include="Models\UserLocal.cs" />
-    <Compile Include="Models\UserMessage.cs" />
-    <Compile Include="ViewModels\UsersViewModel.cs" />
-    <Compile Include="Views\Chat.xaml.cs">
-      <DependentUpon>Chat.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -212,10 +226,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChatViews\MessagesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Views\AutoScrollBehavior.cs" />
-    <Compile Include="ViewModels\UserMessageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

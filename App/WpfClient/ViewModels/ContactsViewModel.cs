@@ -68,28 +68,11 @@ namespace WpfClient.ViewModels
                      }
                  });
              });
-
-            _hubProxy.On("ReceiveChatRequest", (User user) =>
-             {
-                 _dispatcher.Invoke(() =>
-                 {
-                     var contact = GetContactModel(user.ConnectionId);
-                     if(contact != null)
-                     {
-                         contact.OnInvite();
-                     }
-                 });
-             });
         }
 
         private ContactModel GetContactModel(string connectionId)
         {
             return Contacts.FirstOrDefault(contact => contact.User.ConnectionId == connectionId);
-        }
-
-        public async Task SendChatRequest(ContactModel contactModel)
-        {
-            await _hubProxy.Invoke("SendChatRequest", contactModel.User);
         }
 
         public async Task RequestContacts()

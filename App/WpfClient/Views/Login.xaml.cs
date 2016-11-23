@@ -54,7 +54,7 @@ namespace WpfClient
             Dispatcher.Invoke(() =>
             {
                 ProgressRing.IsActive = false;
-                MainWindow.SetUsersWindow();
+                MainWindow.SetMainViewWindow();
             });
         }
 
